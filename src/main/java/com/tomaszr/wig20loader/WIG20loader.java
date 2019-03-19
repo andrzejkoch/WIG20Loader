@@ -1,3 +1,5 @@
+package com.tomaszr.wig20loader;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +8,7 @@ public class WIG20loader {
     public static void main(String[] args) {
         List<String> sharePriceList = new ArrayList<>();
 
-        File file = new File("C:\\Users\\rozpet\\Documents\\java\\Projects\\WIG20loader\\data\\ALIOR.prn");
+        File file = new File("C:\\Users\\rozpet\\Documents\\java\\Projects\\WIG20Loader\\src\\main\\resources\\data\\ALIOR.prn");
         BufferedReader reader = null;
 
         try {
