@@ -51,8 +51,8 @@ public class WIG20loader {
         Wig20Entity wig20 = new Wig20Entity();
 
         wig20.setName("ALIOR");
-        wig20.setDate("20190315");
-        wig20.setHour("164959");
+        wig20.setDate("20190311");
+        wig20.setHour("164951");
         wig20.setPrice(12.11);
 
         //Save the employee in database
