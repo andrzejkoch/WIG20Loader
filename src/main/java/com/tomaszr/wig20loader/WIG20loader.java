@@ -1,5 +1,9 @@
 package com.tomaszr.wig20loader;
 
+import com.tomaszr.wig20loader.dto.HibernateUtil;
+import com.tomaszr.wig20loader.dto.Wig20Entity;
+import org.hibernate.classic.Session;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +26,7 @@ public class WIG20loader {
                 String shareHour = parts[3];
                 String sharePrice = parts[4];
                 if (Integer.parseInt(shareDate)>=20180101){
-                    System.out.println(shareDate+" "+shareHour+" "+sharePrice);
+//                    System.out.println(shareDate+" "+shareHour+" "+sharePrice);
                     sharePriceList.add(rowFromFile);
 
                 }
@@ -41,6 +45,23 @@ public class WIG20loader {
             }
         }
 //        System.out.println(sharePriceList);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Wig20Entity wig20 = new Wig20Entity();
+
+        wig20.setName("ALIOR");
+        wig20.setDate("20190315");
+        wig20.setHour("164959");
+        wig20.setPrice(12.11);
+
+        //Save the employee in database
+        session.save(wig20);
+
+        //Commit the transaction
+        session.getTransaction().commit();
+        HibernateUtil.shutdown();
+
     }
 
 }
